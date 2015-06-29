@@ -1,0 +1,31 @@
+<script>
+jQuery(document).ready(function(){
+	if(jQuery('.dependent').length){
+		var a_input_dependent = new Array();
+		var html = '', label = '';
+
+		jQuery('.dependent').not('label').each(function(key, value){
+			html = value;
+			label = jQuery(value).prev("label");
+
+			a_input_dependent[jQuery(value).attr('id')] = [];
+			a_input_dependent[jQuery(value).attr('id')]['label'] = label;
+			a_input_dependent[jQuery(value).attr('id')]['input'] = html;
+
+			jQuery(value).parent('.enveloppe').css('display','none');
+			jQuery(label).remove();
+			jQuery(value).remove();
+
+			html = '';
+			label = '';
+		});
+		console.log(a_input_dependent);
+	}
+
+	jQuery('input').on('click',function(){
+        var name = jQuery(this).attr('name');
+    });
+});
+
+function searchConditional(){}
+</script>
